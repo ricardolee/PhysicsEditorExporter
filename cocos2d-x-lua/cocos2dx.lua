@@ -1,23 +1,31 @@
-local t = {}
-local body
-local shape
-local material
-local polygonsVerts {% for body in bodies %}
-body = cc.PhysicsBody:create()
-body:setDynamic({% if body.dynamic %} true {% else %} false {% endif %})
-body:setEnable({% if body.enable %} true {% else %} false {% endif %})  {% for fixture in body.fixtures %}
-material = cc.PhysicsMaterial({{fixture.density}}, {{fixture.restitution}}, {{fixture.friction}})  {% if fixture.isCircle %}
-shape = cc.PhysicsShapeCircle.create({{fixture.radius}}, material, cc.p({{fixture.center.x}}, {{fixture.center.y}})) {% else %}
-polygonsVerts = { {% for polygon in fixture.polygons %}
-    { {% for point in polygon %}
-        cc.p({{point.x}}, {{point.y}}){% if not forloop.last %},{% endif %}{% endfor %}
+-- Generate by Physics Editor Don't edit it --
+
+return { {% for body in bodies %}
+    {{body.name}} = {  
+        dynamic = {% if body.dynamic %}true{% else %}false{% endif %},
+        enable = {% if body.enable %}true{% else %}false{% endif %},
+        fixtures = { {% for fixture in body.fixtures %}
+            {
+                density = {{fixture.density}},
+                restitution = {{fixture.restitution}},
+                friction = {{fixture.friction}},
+                group = {{fixture.group}},   
+                categoryBitmask = {{fixture.categoryBitmask}},
+                collisionBitmask = {{fixture.collisionBitmask}},
+                contactTestBitmask = {{fixture.contactTestBitmask}},{% if fixture.isCircle %}
+                isCircle = true,
+                radius = {{fixture.radius}},
+                offset = {
+                    x = {{fixture.center.x}},
+                    y = {{fixture.center.y}}
+                },{% else %}
+                isCircle = false,
+                polygonsVerts = { {% for polygon in fixture.polygons %}
+                    {{% for point in polygon %}
+                        cc.p({{point.x}}, {{point.y}}){% if not forloop.last %},{% endif %}{% endfor %}
+                    }{% if not forloop.last %},{% endif %}{% endfor %}
+                }{% endif %}
+            }{% if not forloop.last %},{% endif %}{% endfor %}
     }{% if not forloop.last %},{% endif %}{% endfor %}
-   }
-shape = cc.PhysicsShapePolygon:create(polygonsVerts, material) {% endif %}
-shape:setGroup({{fixture.group}})   
-shape:setCategoryBitmask({{fixture.categoryBitmask}})
-shape:setCollisionBitmask({{fixture.collisionBitmask}})
-shape:setContactTestBitmask({{fixture.contactTestBitmask}})
-body:addShape(shape){% endfor %}
-m["{{body.name}}"] = body{% endfor %}
-return t
+}   
+
