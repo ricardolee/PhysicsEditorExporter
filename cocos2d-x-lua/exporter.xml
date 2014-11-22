@@ -5,7 +5,7 @@
   <description>Exporter for gerneric cocos2d-x lua file.</description>
   <version>0.1</version>
   <yAxisDirection>up</yAxisDirection>
-  <physicsEngine>chipmunk</physicsEngine>
+  <physicsEngine>generic</physicsEngine>
   <template>cocos2dx.lua</template>
   <fileExtension>lua</fileExtension>
   <anchorPoint>
@@ -17,6 +17,12 @@
     <type>anchorPoint</type>
   </origin>
   <global>
+    <parameter>
+      <name>gravity</name>
+      <displayName>Gravity</displayName>
+      <type>float</type>
+      <default>9.8</default>
+    </parameter>
   </global>
   <body>
     <parameter>
