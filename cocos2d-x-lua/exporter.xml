@@ -67,14 +67,14 @@
       <name>categoryBitmask</name>
       <displayName>Category</displayName>
       <type>uint</type>
-      <default>4294967295</default>
+      <default>0</default>
       <bitfield>yes</bitfield>
     </parameter>
     <parameter>
       <name>collisionBitmask</name>
       <displayName>Collision</displayName>
       <type>uint</type>
-      <default>4294967295</default>
+      <default>0</default>
       <bitfield>yes</bitfield>
     </parameter>
     <parameter>
