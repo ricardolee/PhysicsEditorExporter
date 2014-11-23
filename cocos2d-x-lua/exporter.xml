@@ -18,6 +18,12 @@
   </origin>
   <global>
     <parameter>
+      <name>m2pRatio</name>
+      <displayName>Meter to Pixel Ratio</displayName>
+      <type>float</type>
+      <default>1.0</default>
+    </parameter>
+    <parameter>
       <name>gravity</name>
       <displayName>Gravity</displayName>
       <type>float</type>

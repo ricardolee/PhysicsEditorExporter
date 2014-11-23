@@ -1,6 +1,7 @@
 -- Generate by Physics Editor Don't edit it --
 
 return {
+    m2pRatio = {{global.m2pRatio|floatformat}},
     gravity = {{global.gravity|floatformat}},
     bodys = {{% for body in bodies %}
         {{body.name}} = {  
@@ -18,8 +19,8 @@ return {
                     isCircle = true,
                     radius = {{fixture.radius|floatformat}},
                     offset = {
-                        x = {{fixture.center.x|floatformat}},
-                        y = {{fixture.center.y|floatformat}}
+                        x = {{fixture.center.x|floatformat}} - {{body.size.width|floatformat}} / 2,
+                        y = {{fixture.center.y|floatformat}} - {{body.size.height|floatformat}} / 2
                     },{% else %}
                     isCircle = false,
                     polygonsVerts = {{% for polygon in fixture.polygons %}
