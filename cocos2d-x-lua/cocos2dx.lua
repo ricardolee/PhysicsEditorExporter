@@ -1,7 +1,7 @@
 -- Generate by Physics Editor Don't edit it --
 
 return {
-    gravity = {{gravity|floatformat}},
+    gravity = {{global.gravity|floatformat}},
     bodys = {{% for body in bodies %}
         {{body.name}} = {  
             dynamic = {% if body.dynamic %}true{% else %}false{% endif %},
