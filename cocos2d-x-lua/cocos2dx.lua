@@ -17,11 +17,7 @@ return {
                     collisionBitmask = {{fixture.collisionBitmask}},
                     contactTestBitmask = {{fixture.contactTestBitmask}},{% if fixture.isCircle %}
                     isCircle = true,
-                    radius = {{fixture.radius|floatformat}},
-                    offset = {
-                        x = {{fixture.center.x|floatformat}} - {{body.size.width|floatformat}} / 2,
-                        y = {{fixture.center.y|floatformat}} - {{body.size.height|floatformat}} / 2
-                    },{% else %}
+                    radius = {{fixture.radius|floatformat}},{% else %}
                     isCircle = false,
                     polygonsVerts = {{% for polygon in fixture.polygons %}
                         {{% for point in polygon %}

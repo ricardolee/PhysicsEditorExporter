@@ -9,12 +9,12 @@
   <template>cocos2dx.lua</template>
   <fileExtension>lua</fileExtension>
   <anchorPoint>
-    <enabled>false</enabled>
-    <relX>0.5</relX>
-    <relY>0.5</relY>
+    <enabled>no</enabled>
   </anchorPoint>
   <origin>
-    <type>anchorPoint</type>
+    <type>fixed</type>
+    <relX>0.5</relX>
+    <relY>0.5</relY>
   </origin>
   <global>
     <parameter>
