@@ -32,14 +32,20 @@
   </global>
   <body>
     <parameter>
-      <name>dynamic</name>
+      <name>isDynamic</name>
       <displayName>Dynamic</displayName>
       <type>bool</type>
       <default>true</default>
     </parameter>
     <parameter>
-      <name>enable</name>
+      <name>isEnable</name>
       <displayName>Enable</displayName>
+      <type>bool</type>
+      <default>true</default>
+    </parameter>
+    <parameter>
+      <name>isGravityEnable</name>
+      <displayName>Gravity Enable</displayName>
       <type>bool</type>
       <default>true</default>
     </parameter>
@@ -68,6 +74,18 @@
       <displayName>Group</displayName>
       <type>int</type>
       <default>0</default>
+    </parameter>
+    <parameter>
+      <name>isEdge</name>
+      <displayName>Edge</displayName>
+      <type>bool</type>
+      <default>false</default>
+    </parameter>
+    <parameter>
+      <name>border</name>
+      <displayName>Border</displayName>
+      <type>float</type>
+      <default>1</default>
     </parameter>
     <parameter>
       <name>bitfield</name>
