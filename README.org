@@ -1,0 +1,2 @@
+* README
+  This is a template of Physics Editor exporter, It generate a lua source file that stored vertexes of Sharp.
